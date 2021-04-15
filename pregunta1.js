@@ -3,12 +3,28 @@
  * solo los numeros pares y solo numeros impares respectivamente
  */
 
-const even = function(numbers){
-    
+const even = function(array){
+    const arrayPares = [];
+
+    array.forEach(element => {
+        if (element % 2 === 0) {
+            arrayPares.push(element);
+        }
+    });
+
+    return arrayPares;
 }
 
-const odd = function(numbers){
+const odd = function(array){
+    const arrayImpares = [];
 
+    array.forEach(element => {
+        if (element % 2 != 0) {
+            arrayImpares.push(element);
+        }
+    });
+
+    return arrayImpares;
 }
 
 // TESTS (no modificar)

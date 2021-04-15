@@ -20,3 +20,24 @@ const beers = [
     { name: 'Stolen Fruit', abv: 4.6, label: 'https://s3.amazonaws.com/brewerydbapi/beer/YGT30k/upload_uVCHP7-large.png', type: 'Wheat' },
 ];
 
+
+function actualizarRepositorio(beers){
+  return beers.map(
+    beer => ({...beer, label: nuevoLabel(beer) + '.png'})
+  )
+}
+
+function nuevoLabel(beer){
+
+  
+  const nombreActual = beer.label.split('/');
+  const nuevoNombre = nombreActual.slice(4)
+  nuevoNombre.splice(2,1,beer.name);
+  nuevoNombre.unshift('https://tecnoshare.sharepoint.com/sites');
+  
+  let nombreFinal = nuevoNombre.toString();
+  
+  return nombreFinal.replace(/,/g, '/');
+}
+
+console.log(actualizarRepositorio(beers));
